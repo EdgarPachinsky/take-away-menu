@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/take-away-menu/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
