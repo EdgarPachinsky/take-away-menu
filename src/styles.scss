@@ -1,4 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background: #f9f7f3;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// GLOBAL FONTS
+@font-face {
+  font-family: 'ArmenianHandwritten';
+  src: url('./assets/fonts/ArmenianHandwritten.otf') format('truetype');
+}
+@font-face {
+  font-family: 'ArmenianSlim';
+  src: url('./assets/fonts/ArmenianSlim.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'ArmenianAmrysBlack';
+  src: url('./assets/fonts/ArmenianAmrysBlack.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ArmenianAmrysBold';
+  src: url('./assets/fonts/ArmenianAmrysBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'BriemHandWritten';
+  src: url('./assets/fonts/BriemHandWritten.ttf') format('truetype');
+}
+
+// SPACES ------------------------
+$spaces: (
+  0: 0,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  7: 28px,
+  8: 32px,
+  9: 36px,
+  10: 40px,
+  sm: 16px,
+  md: 32px,
+  lg: 56px,
+  section: 60px
+) !default;
+
+@each $key-spaces,$val-spaces in $spaces {
+  .m-#{$key-spaces} {
+    margin: #{$val-spaces};
+  }
+  .mt-#{$key-spaces} {
+    margin-top: #{$val-spaces} !important;
+  }
+  .mr-#{$key-spaces} {
+    margin-right: #{$val-spaces} !important;
+  }
+  .mb-#{$key-spaces} {
+    margin-bottom: #{$val-spaces} !important;
+  }
+  .ml-#{$key-spaces} {
+    margin-left: #{$val-spaces} !important;
+  }
+
+  .p-#{$key-spaces} {
+    padding: #{$val-spaces};
+  }
+  .pt-#{$key-spaces} {
+    padding-top: #{$val-spaces};
+  }
+  .pr-#{$key-spaces} {
+    padding-right: #{$val-spaces} !important;
+  }
+  .pb-#{$key-spaces} {
+    padding-bottom: #{$val-spaces};
+  }
+  .pl-#{$key-spaces} {
+    padding-left: #{$val-spaces} !important;
+  }
+
+  .gap-#{$key-spaces} {
+    gap: #{$val-spaces};
+  }
+}
+// SPACES END ------------------------
+
+// DISPLAYS
+.d-block {
+  display: block;
+}
+.d-none, .hidden {
+  display: none;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: grid;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.space-between{
+  justify-content: space-between;
+}
+.align-center{
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
+.flex-row{
+  flex-direction: row;
+}
+.flex-col{
+  flex-direction: column;
+}
+.text-center{
+  text-align: center;
+}
+
+// Container
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  //background: red;
+
+  // Breakpoints
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}

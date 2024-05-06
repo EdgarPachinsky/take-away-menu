@@ -1,0 +1,87 @@
+// Define breakpoint for mobile devices
+$mobile-breakpoint: 768px;
+
+.company-and-search{
+
+  .company-name{
+    color: #5d5d5d;
+    font-size: 30px;
+    font-family: BriemHandWritten;
+  }
+}
+
+.custom-input{
+  position: relative;
+  //background: $color-white;
+
+  span{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #5d5d5d;
+  }
+  input{
+    color: #5d5d5d;
+    border: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 40px 10px 45px;
+    border-radius: 10px;
+    font-family: BriemHandWritten;
+
+    &:focus {
+      outline: none; // Remove the default focus outline
+    }
+  }
+}
+
+.navbar-items{
+  font-family: ArmenianSlim;
+
+  .navbar-item{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 1px 5px;
+    margin: 0 10px;
+    letter-spacing: 1px;
+
+    &.navbar-item-icon{
+      color: #9c702a;
+      font-size: 23px;
+    }
+
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Breakpoints
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 992px) {
+
+  .container-inner{
+    display: flex;
+    flex-direction: column;
+
+    .navbar-items{
+      margin-top: 30px;
+    }
+  }
+}
+@media (max-width: 768px) {
+
+}
+@media (max-width: 576px) {
+  .company-and-search{
+    flex-direction: column;
+
+    .custom-input{
+
+      margin-top: 30px;
+    }
+  }
+}
+
