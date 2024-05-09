@@ -59,6 +59,10 @@ $mobile-breakpoint: 768px;
   }
 }
 
+.custom-input-container{
+  margin-left: 15px;
+}
+
 // Breakpoints
 @media (max-width: 1200px) {
 
@@ -85,6 +89,10 @@ $mobile-breakpoint: 768px;
 
       margin-top: 30px;
     }
+  }
+
+  .custom-input-container{
+    margin-left: 0;
   }
 }
 
