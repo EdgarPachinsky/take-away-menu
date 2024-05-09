@@ -6,7 +6,10 @@ $mobile-breakpoint: 768px;
   .company-name{
     color: #5d5d5d;
     font-size: 30px;
+    line-height: 40px;
     font-family: BriemHandWritten;
+    position: relative;
+    top: -5px;
   }
 }
 
@@ -63,8 +66,8 @@ $mobile-breakpoint: 768px;
 @media (max-width: 992px) {
 
   .container-inner{
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
 
     .navbar-items{
       margin-top: 30px;
@@ -76,7 +79,7 @@ $mobile-breakpoint: 768px;
 }
 @media (max-width: 576px) {
   .company-and-search{
-    flex-direction: column;
+    flex-direction: column !important;
 
     .custom-input{
 

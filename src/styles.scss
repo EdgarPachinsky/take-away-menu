@@ -3,7 +3,7 @@
 
 html, body { height: 100%; }
 body {
-  background: #f9f7f3;
+  background: #f9f7f3 !important;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -128,29 +128,4 @@ $spaces: (
 }
 .text-center{
   text-align: center;
-}
-
-// Container
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-
-  //background: red;
-
-  // Breakpoints
-  @media (min-width: 576px) {
-    max-width: 540px;
-  }
-  @media (min-width: 768px) {
-    max-width: 720px;
-  }
-  @media (min-width: 992px) {
-    max-width: 960px;
-  }
-  @media (min-width: 1200px) {
-    max-width: 1140px;
-  }
 }
