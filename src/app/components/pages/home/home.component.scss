@@ -27,6 +27,10 @@
     &:hover {
       border: 1px solid currentColor;
     }
+
+    &.active-category{
+      border: 1px solid currentColor;
+    }
   }
 }
 
@@ -34,7 +38,7 @@
 
   .product{
     cursor: pointer;
-    width: 30%;
+    //width: 30%;
     background: #FFFFFF;
     //height: 100px;
     //padding: 10px;
@@ -48,7 +52,7 @@
         width: 100%;
         border-radius: 30px;
         overflow: hidden;
-        height: 220px;
+        //height: 220px;
 
         img{
           width: 100%;
@@ -90,7 +94,7 @@
       .product-inner {
 
         .product-image {
-          height: 150px;
+          //height: 150px;
         }
       }
     }
@@ -109,7 +113,7 @@
   .category_products {
 
     .product {
-      width: 45%;
+      //width: 45%;
 
       .product-inner {
 
@@ -125,7 +129,7 @@
   .category_products {
 
     .product {
-      width: 45%;
+      //width: 45%;
     }
   }
 }
@@ -134,13 +138,13 @@
   .category_products {
 
     .product {
-      width: 100%;
+      //width: 100%;
 
       .product-inner{
 
         .product-image{
 
-          height: 230px;
+          //height: 230px;
         }
       }
     }

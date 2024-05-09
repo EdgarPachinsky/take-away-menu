@@ -8,94 +8,80 @@
         </div>
 
         <div class="categories d-flex flex-row align-center justify-center">
-          <div *ngFor="let category of categories" class="category-container"
-               [style.color]="category.text_color"
-               [style.background-color]="lightenColor(category.text_color, 65)"
-               (mouseover)="setBorderColor(category.text_color)"
-               (mouseleave)="removeBorderColor()">
-            <span class="category-container-inner">
-              <span>{{category.name}}</span>
-            </span>
-          </div>
+          <ng-container *ngIf="apiService.categories.length && !apiService.loadingCategories">
+            <div *ngFor="let category of apiService.categories" class="category-container"
+                 [style.color]="category.text_color"
+                 [style.background-color]="lightenColor(category.text_color, 65)"
+                 (mouseover)="setBorderColor(category.text_color)"
+                 (mouseleave)="removeBorderColor()"
+                 (click)="filterProducts(category)"
+                 [class.active-category]="filtrationService.selectedCategory && (filtrationService.selectedCategory.id === category.id)">
+              <span class="category-container-inner">
+                <span>{{category.name}}</span>
+              </span>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="!apiService.categories.length && !apiService.loadingCategories">
+            Դեռևս չկան կատեգորիաներ
+          </ng-container>
+
+          <ng-container *ngIf=" apiService.loadingCategories">
+            Բեռնվում են կատեգորիաները
+            <div class="spinner-border spinner-border-sm ml-2" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </ng-container>
         </div>
 
         <div class="category_products d-flex flex-row flex-wrap justify-center mt-10 mb-10">
 
-        <div class="product">
+          <div class="row">
 
-          <div class="product-inner d-flex flex-col">
+            <ng-container *ngIf="apiService.products.length && !apiService.loadingProducts">
+              <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-6"
+                   *ngFor="let product of apiService.products">
+                <div class="product">
 
-            <div class="product-image">
-              <img src="assets/images/pizza.png" alt="">
-            </div>
+                  <div class="product-inner d-flex flex-col">
 
-            <div class="product-name">
-              Պիցցա Մարգարիտա
-            </div>
+                    <div class="product-image">
+                      <img src="{{product.image}}" alt="">
+                    </div>
 
-            <div class="product-info d-flex flex-row space-between">
+                    <div class="product-name">
+                      {{product.name}}
+                    </div>
 
-              <div class="info-left">
+                    <div class="product-info d-flex flex-row space-between">
 
+                      <div class="info-left">
+
+                      </div>
+                      <div class="info-right">
+                        {{product.price}} Դ․
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
               </div>
-              <div class="info-right">
-                2500 Դ․
-              </div>
-            </div>
+            </ng-container>
 
+            <ng-container *ngIf="!apiService.products.length && !apiService.loadingProducts">
+              Դեռևս չկան ապրանքներ
+            </ng-container>
+
+            <ng-container *ngIf=" apiService.loadingProducts">
+              <div class="w-100 text-center">
+                Բեռնվում են ապրանքները
+                <div class="spinner-border spinner-border-sm ml-2" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            </ng-container>
           </div>
         </div>
-
-        <div class="product">
-
-          <div class="product-inner d-flex flex-col">
-
-            <div class="product-image">
-              <img src="assets/images/burger.png" alt="">
-            </div>
-
-            <div class="product-name">
-              Իդեալական Բուրգեր Անգուսի Մսով
-            </div>
-
-            <div class="product-info d-flex flex-row space-between">
-
-              <div class="info-left">
-
-              </div>
-              <div class="info-right">
-                3600 Դ․
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="product">
-
-          <div class="product-inner d-flex flex-col">
-
-            <div class="product-image">
-              <img src="assets/images/salade.png" alt="">
-            </div>
-
-            <div class="product-name">
-              Ամառային աղցան
-            </div>
-
-            <div class="product-info d-flex flex-row space-between">
-
-              <div class="info-left">
-
-              </div>
-              <div class="info-right">
-                1800 Դ․
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
       </div>
     </div>
   </div>

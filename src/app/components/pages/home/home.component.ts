@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavbarComponent} from "../../parts/navbar/navbar.component";
 import {IProductCategory} from "../../../models/product/category.model";
 import {CommonModule} from "@angular/common";
-import {IProduct} from "../../../models/product/product";
+import {ApiService} from "../../../services/api.service";
+import {Subscription} from "rxjs";
+import {FiltrationService} from "../../../services/filtration.service";
 
 @Component({
   selector: 'app-home',
@@ -13,53 +15,37 @@ import {IProduct} from "../../../models/product/product";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
+  public $subscriptions: Subscription = new Subscription();
   public borderColor: string | null = null;
-  public categories: IProductCategory[] = [
-    {
-      id: '1',
-      name: 'Պիցցաներ',
-      text_color: '#3c3a8f'
-    },
-    {
-      id: '2',
-      name: 'Բուրգերներ',
-      text_color: '#1f8787'
-    },
-    {
-      id: '3',
-      name: 'Աղցաններ',
-      text_color: '#397a9e'
-    },
-    {
-      id: '4',
-      name: 'Տաք Ուտեստներ',
-      text_color: '#d16400'
-    },
-    {
-      id: '5',
-      name: 'Սառը Ուտեստներ',
-      text_color: '#f0493e'
-    },
-    {
-      id: '6',
-      name: 'Սեթեր',
-      text_color: '#59871f'
-    },
-  ];
 
+  constructor(
+    public apiService: ApiService,
+    public filtrationService: FiltrationService,
+  ) {
 
-  public products1: IProduct[] = [
-    {
-      id: '1',
-      category: '1',
-      name: 'Մարգարիտտա',
-      price: '2500',
-      mass: 'string',
-      image: 'string',
-    }
-  ]
+  }
+
+  ngOnInit(){
+    this.$subscriptions.add(
+      this.apiService.getAllCategories().subscribe((res) => {
+      })
+    )
+    this.$subscriptions.add(
+      this.apiService.getAllProducts().subscribe((res) => {
+        if(res){
+          this.filtrationService.filterProducts(true);
+        }
+      })
+    )
+  }
+
+  filterProducts(category: IProductCategory){
+    this.filtrationService.selectedCategory = category;
+
+    this.filtrationService.filterProducts()
+  }
 
   lightenColor(hex: string | undefined, percent: number): string {
     if(!hex){

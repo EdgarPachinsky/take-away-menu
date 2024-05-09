@@ -4,19 +4,20 @@
       <div class="col">
         <div class="container-inner d-flex flex-row space-between align-center">
           <div class="company-and-search d-flex flex-row align-center">
-        <span class="company-name">
-          TakeAway
-        </span>
-
-            <span class="ml-5">
-          <div class="custom-input">
-
-            <span class="">
-              <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="company-name">
+              TakeAway
             </span>
-            <input type="text">
-          </div>
-        </span>
+
+            <span class="custom-input-container">
+              <div class="custom-input">
+                <span class="">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text"
+                       [disabled]="apiService.loadingProducts"
+                       [(ngModel)]="filtrationService.typedCriteria" (keyup)="filtrationService.filterProducts(false, true)">
+              </div>
+            </span>
           </div>
 
           <div class="navbar-items d-flex flex-row align-center">
