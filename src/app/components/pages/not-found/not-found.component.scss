@@ -1,0 +1,36 @@
+.page-not-found-container {
+  height: 70vh; /* 80% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-not-found-content {
+  text-align: center;
+}
+
+.page-not-found-content h1 {
+  font-size: 7rem; /* Adjust the size as needed */
+  color: #9c702a;
+  font-family: ArmenianYerevanian;
+}
+
+.page-not-found-content h2 {
+  font-family: ArmenianYerevanian;
+  font-size: 2rem; /* Adjust the size as needed */
+}
+
+.page-not-found-content p {
+  font-family: ArmenianYerevanian;
+  margin-bottom: 20px;
+}
+
+.page-not-found-content a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  font-family: ArmenianYerevanian;
+}
+
+.page-not-found-content a:hover {
+  text-decoration: underline;
+}

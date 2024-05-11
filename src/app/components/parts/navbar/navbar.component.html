@@ -1,4 +1,4 @@
-<div class="mt-10 mb-10">
+<div class="mt-10">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -16,6 +16,7 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input type="text"
+                       placeholder="Փնտրել"
                        [disabled]="apiService.loadingProducts"
                        [(ngModel)]="filtrationService.typedCriteria" (keyup)="filtrationService.filterProducts(false, true)">
               </div>

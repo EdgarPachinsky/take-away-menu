@@ -1,12 +1,10 @@
-<div class="mt-3">
+<div>
   <div class="container">
-
     <div class="row">
       <div class="col">
         <div class="text-center home-title">
           Պատրաստված է սիրով
         </div>
-
         <div class="categories d-flex flex-row align-center justify-center">
           <ng-container *ngIf="apiService.categories.length && !apiService.loadingCategories">
             <div *ngFor="let category of apiService.categories" class="category-container"
@@ -22,8 +20,10 @@
             </div>
           </ng-container>
 
-          <ng-container class="hint-element" *ngIf="!apiService.categories.length && !apiService.loadingCategories">
-            Դեռևս չկան կատեգորիաներ
+          <ng-container  *ngIf="!apiService.categories.length && !apiService.loadingCategories">
+            <div class="hint-element">
+              Դեռևս չկան կատեգորիաներ
+            </div>
           </ng-container>
 
           <ng-container *ngIf=" apiService.loadingCategories">
@@ -42,7 +42,7 @@
 
             <ng-container *ngIf="apiService.products.length && !apiService.loadingProducts">
               <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-12"
-                   *ngFor="let product of apiService.products">
+                   *ngFor="let product of apiService.products" (click)="openProductView(product)">
                 <div class="product mb-5">
 
                   <div class="product-inner d-flex flex-col">
@@ -70,8 +70,10 @@
               </div>
             </ng-container>
 
-            <ng-container class="hint-element" *ngIf="!apiService.products.length && !apiService.loadingProducts">
-              Դեռևս չկան ապրանքներ
+            <ng-container *ngIf="!apiService.products.length && !apiService.loadingProducts">
+              <div class="hint-element">
+                Դեռևս չկան ապրանքներ
+              </div>
             </ng-container>
 
             <ng-container *ngIf=" apiService.loadingProducts">

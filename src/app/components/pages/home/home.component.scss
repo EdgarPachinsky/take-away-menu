@@ -7,8 +7,9 @@
   letter-spacing: 2px;
 }
 .hint-element{
-  font-family: ArmenianYerevanian;
+  font-family: ArmenianYerevanian !important;
 }
+
 .categories{
   flex-wrap: wrap;
 
@@ -126,8 +127,8 @@
 
 @media (max-width: 992px) {
   .home-title{
+    letter-spacing: 0;
     padding: 40px 0 40px 0;
-    font-family: ArmenianAmrysBold;
     font-size: 35px;
     line-height: 47px;
   }

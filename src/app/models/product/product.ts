@@ -5,8 +5,8 @@ export interface IProduct {
   category: IProductCategory,
   name: string,
   name_eng?: string,
-  price: string,
+  price: number,
   description?: string,
-  mass?: string,
+  mass?: number,
   image?: string
 }
