@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IProductCategory} from "../models/product/category.model";
 import {IProduct} from "../models/product/product";
-import {delay, Observable, of, Subscription, tap} from "rxjs";
+import {BehaviorSubject, delay, Observable, of, Subscription, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,12 @@ export class ApiService {
   allProducts: IProduct[] = []; // this will store all data got from back end
   products: IProduct[] = []; // this is filtered products that is dynamically changing in page
 
+  allProductsLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor() {
   }
 
-  getAllCategories(): Observable<IProductCategory[]>{
+  getAllCategories(): Observable<IProductCategory[]> {
     this.loadingCategories = true;
     this.categories = [];
 
@@ -90,8 +92,9 @@ export class ApiService {
         },
         name: 'Մարգարիտտա',
         name_eng: 'margarita',
-        price: '2500',
-        mass: '25',
+        price: 2500,
+        mass: 9.6,
+        description: 'որեմ Իպսումը տպագրության և տպագրական արդյունաբերության համար նախատեսված մոդելային տեքստ է։ Սկսած 1500-ականներից՝ Լորեմ Իպսումը հանդիսացել է տպագրական արդյունաբերության ստանդարտ մոդելային տեքստ, ինչը մի անհայտ տպագրիչի կողմից տարբեր տառատեսակների օրինակների գիրք ստեղծելու ջանքերի արդյունք է',
         image: '../../../../assets/images/img.png',
       },
       {
@@ -104,8 +107,8 @@ export class ApiService {
         },
         name: 'Ալտոնո',
         name_eng: 'altono',
-        price: '3000',
-        mass: '25',
+        price: 3000,
+        mass: 25,
         image: '../../../../assets/images/img_2.png',
       },
       {
@@ -118,8 +121,8 @@ export class ApiService {
         },
         name: 'Ապուր Ֆրանսիական',
         name_eng: 'apur fransiakan',
-        price: '700',
-        mass: '50',
+        price: 700,
+        mass: 78,
         image: '../../../../assets/images/img_1.png',
       },
       {
@@ -132,8 +135,8 @@ export class ApiService {
         },
         name: 'Սթեյք',
         name_eng: 'steak',
-        price: '700',
-        mass: '50',
+        price: 700,
+        mass: 50,
         image: '../../../../assets/images/img_4.png',
       },
       {
@@ -146,19 +149,24 @@ export class ApiService {
         },
         name: 'Սեթ Մեծ',
         name_eng: 'set mec',
-        price: '1700',
-        mass: '50',
+        price: 1700.2,
+        mass: 50.3,
         image: '../../../../assets/images/img_3.png',
       }
     ]
 
     return of(true).pipe(delay(2000), tap(() => {
       this.loadingProducts = false;
+      this.allProductsLoaded.next(true);
     }))
   }
 
-  get allCategoryObject(){
-    return  {
+  getPopupProductById(id: string) {
+    return this.allProducts.find((el) => el.id === id);
+  }
+
+  get allCategoryObject() {
+    return {
       id: '__all__',
       name: 'Բոլորը',
       name_eng: 'all',
