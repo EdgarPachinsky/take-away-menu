@@ -10,6 +10,10 @@ body {
 
 // GLOBAL FONTS
 @font-face {
+  font-family: 'ArmenianYerevanian';
+  src: url('./assets/fonts/ArmenianYerevanian.otf') format('truetype');
+}
+@font-face {
   font-family: 'ArmenianHandwritten';
   src: url('./assets/fonts/ArmenianHandwritten.otf') format('truetype');
 }
@@ -128,4 +132,16 @@ $spaces: (
 }
 .text-center{
   text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+
+a{
+  text-transform: none!important;
+  text-decoration: none!important;
+  color: unset!important;
 }

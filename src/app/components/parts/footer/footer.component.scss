@@ -1,0 +1,71 @@
+
+.footer-container{
+  background: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+  .footer-title{
+    font-family: BriemHandWritten;
+    font-size: 30px;
+  }
+
+  .footer-description{
+    font-family: ArmenianYerevanian;
+  }
+
+
+
+  .footer-bottom{
+    color: #5d5d5d;
+    font-size: 13px;
+  }
+
+  .rights-reserved{
+    text-align: right;
+  }
+
+  .built-by{
+    text-align: left;
+  }
+
+  .footer-title-place{
+    font-size: 25px;
+    font-family: ArmenianYerevanian;
+  }
+  .place-container{
+
+    font-family: ArmenianYerevanian;
+  }
+  .phone-container{
+
+    font-family: ArmenianYerevanian;
+  }
+}
+
+.footer-icons{
+
+  .navbar-item{
+    color: #9c702a;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .footer-container{
+    text-align: center;
+
+    .rights-reserved{
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .built-by{
+      text-align: center;
+    }
+  }
+
+  .footer-icons{
+    justify-content: center;
+  }
+}
+

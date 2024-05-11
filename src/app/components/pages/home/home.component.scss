@@ -1,15 +1,21 @@
 .home-title{
   padding: 120px 0 120px 0;
-  font-family: ArmenianAmrysBold;
+  font-family: ArmenianYerevanian;
   font-size: 70px;
   line-height: 82px;
   color: #5d5d5d;
+  letter-spacing: 2px;
 }
-
+.hint-element{
+  font-family: ArmenianYerevanian;
+}
 .categories{
   flex-wrap: wrap;
 
   .category-container{
+    position: relative;
+    top: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     cursor: pointer;
     padding: 9px 23px;
     text-transform: uppercase;
@@ -19,6 +25,12 @@
     margin: 10px 10px;
     transition: border-color 0.3s ease;
     border: 1px solid transparent;
+    transition: .3s;
+
+    &:hover{
+      top: -3px;
+      transition: .3s;
+    }
 
     .category-container-inner{
       letter-spacing: 2px;
@@ -42,9 +54,19 @@
     background: #FFFFFF;
     //height: 100px;
     //padding: 10px;
-    margin: 5px 10px 5px 10px;
+    margin: 0 10px 0 10px;
     border-radius: 30px;
     overflow: hidden;
+    transition: .3s;
+    position: relative;
+    top: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+    &:hover{
+      position: relative;
+      top: -10px;
+      transition: .3s;box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
 
     .product-inner{
 
@@ -64,7 +86,7 @@
         line-height: 25px;
         height: 100px;
         word-break: break-word;
-        font-family: ArmenianSlim;
+        font-family: ArmenianYerevanian;
         padding: 20px;
       }
 
@@ -76,7 +98,7 @@
         }
 
         .info-right{
-          font-family: ArmenianSlim;
+          font-family: ArmenianYerevanian;
           font-weight: bold;
           font-size: 20px;
         }
@@ -118,7 +140,7 @@
       .product-inner {
 
         .product-name {
-          height: 80px;
+          height: 95px;
         }
       }
     }
