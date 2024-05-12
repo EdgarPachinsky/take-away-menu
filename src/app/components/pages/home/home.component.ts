@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {IProduct} from "../../../models/product/product";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductViewComponent} from "../product-view/product-view.component";
+import {lightenColor} from "../../../helpers/helpers";
 
 @Component({
   selector: 'app-home',
@@ -69,36 +70,6 @@ export class HomeComponent implements OnInit{
 
     this.clearRouteParams();
   }
-
-  lightenColor(hex: string | undefined, percent: number): string {
-    if(!hex){
-      return ''
-    }
-    // Remove the '#' from the beginning of the hex string
-    hex = hex.replace(/^#/, '');
-
-    // Convert the hex color to RGB
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    // Calculate the percent to lighten each RGB component
-    const lightenAmount = Math.round(255 * (percent / 100));
-
-    // Lighten the color
-    const newR = Math.min(r + lightenAmount, 255);
-    const newG = Math.min(g + lightenAmount, 255);
-    const newB = Math.min(b + lightenAmount, 255);
-
-    // Convert the new RGB values back to hexadecimal
-    const newHex = '#' + [newR, newG, newB].map(component => {
-      const hexValue = component.toString(16);
-      return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('');
-
-    return newHex;
-  }
-
   setBorderColor(color: string | undefined): void {
     if(!color){
       return;
@@ -130,4 +101,6 @@ export class HomeComponent implements OnInit{
   removeBorderColor(): void {
     this.borderColor = null;
   }
+
+  protected readonly lightenColor = lightenColor;
 }

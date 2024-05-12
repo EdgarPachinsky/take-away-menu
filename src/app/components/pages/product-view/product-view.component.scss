@@ -3,16 +3,62 @@
 }
 
 .popup-title{
-  font-size: 40px;
+  color: #5d5d5d;
+  font-size: 30px;
+  line-height: 42px;
+  position: relative;
+  top: -7px;
 }
 
 .popup-image{
-  max-width: 1000px;
+  max-width: 600px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
   img{
     width: 100%;
+  }
+}
+
+.popup-info-element{
+  color: #5d5d5d;
+  font-size: 17px;
+
+  i{
+    color: #9c702a;
+  }
+}
+.popup-info-element-description{
+  max-width: 450px;
+  font-size: 13px;
+  color: #5d5d5d;
+}
+
+.category-container{
+  position: relative;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 30px;
+  font-family: ArmenianAmrysBold;
+  transition: border-color 0.3s ease;
+  border: 1px solid transparent;
+  transition: .3s;
+  padding: 10px 23px;
+  transition: .3s;
+}
+
+
+@media (max-width: 1200px) {
+
+  .popup-title{
+    margin-top: 20px;
+  }
+
+  .main-container{
+    flex-direction: column !important;
   }
 }

@@ -8,5 +8,6 @@ export interface IProduct {
   price: number,
   description?: string,
   mass?: number,
-  image?: string
+  image?: string,
+  portion_for?: number
 }

@@ -7,45 +7,95 @@
       </div>
     </div>
 
-    <div *ngIf="!apiService.loadingProducts && apiService.allProducts.length && !currentProduct?.id" class="loading-hint">
+    <div *ngIf="!apiService.loadingProducts && apiService.allProducts.length && !currentProduct?.id"
+         class="loading-hint">
       Նման պրոդուկտ չի գտնվել
     </div>
 
-    <div *ngIf="!apiService.loadingProducts && apiService.allProducts.length && currentProduct?.id" class="loading-hint">
-      <div class="row">
-        <div class="col-md-8 col-12">
-          <div class="popup-title mb-10">
-            {{currentProduct?.name}}
-          </div>
+    <div *ngIf="!apiService.loadingProducts && apiService.allProducts.length && currentProduct?.id"
+         class="loading-hint">
 
+      <div class="d-flex flex-row main-container">
+        <div class="title-and-image ">
           <div class="popup-image ">
             <img src="{{currentProduct?.image}}" class="" alt="">
           </div>
         </div>
 
-        <div class="col-md-4 col-12">
+        <div class="ml-5">
           <div class="d-flex flex-col">
-
-            <div>
-              {{currentProduct?.price}} դրամ
+            <div class="popup-title d-flex flex-row space-between">
+              <span>{{currentProduct?.name}}</span>
             </div>
 
-            <div>
-              {{currentProduct?.mass}} գրամ
+            <div class="d-flex flex-row flex-wrap">
+              <div class="category-container mr-2 mt-2"
+                   matTooltip="Կատեգորիա"
+                   matTooltipPosition="above"
+                   [style.color]="currentProduct?.category?.text_color"
+                   [style.background-color]="lightenColor(currentProduct?.category?.text_color, 65)">
+                  <span class="category-container-inner">
+                    <span>{{currentProduct?.category?.name}}</span>
+                  </span>
+              </div>
+
+              <div class="category-container mt-2"
+                   matTooltip="{{!copied?'Պատճենել լինկը clipboard-ում':'Պատճենված է'}}"
+                   matTooltipPosition="above"
+                   (click)="copyLink()"
+              >
+                  <span class="category-container-inner">
+                    <span class="" *ngIf="!copied"><i class="fa-solid fa-link"></i></span>
+                    <span class="" *ngIf="copied"><i class="fa-solid fa-check"></i></span>
+                  </span>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="popup-info-element mb-4">
+              <div class="d-flex flex-row">
+                <span><i class="fa-solid fa-money-bill"></i></span> <span class="ml-2"> Արժեք</span>
+              </div>
+              <div class="ml-7 mt-2">
+                <span>{{currentProduct?.price}} Դ</span>
+              </div>
+            </div>
+
+            <div class="popup-info-element mb-4">
+              <div class="d-flex flex-row">
+                <span><i class="fa-solid fa-weight-hanging"></i></span> <span class="ml-2"> Քաշ</span>
+              </div>
+              <div class="ml-7 mt-2">
+                <span>{{currentProduct?.mass}} Գր․</span>
+              </div>
             </div>
 
 
-<!--            <div>-->
-<!--              {{currentProduct?.mass}} գրամ-->
-<!--            </div>-->
+            <div class="popup-info-element">
+              <div class="d-flex flex-row">
+                <span><i class="fa-solid fa-users"></i></span> <span class="ml-2"> Նախատեսված է</span>
+              </div>
+              <div class="ml-7 mt-2">
+                <span>{{currentProduct?.portion_for}} հոգու</span>
+              </div>
+            </div>
 
-            <div>
+            <hr>
+
+            <div class="popup-info-element-description mb-2">
               {{currentProduct?.description}}
             </div>
-
           </div>
         </div>
       </div>
+
     </div>
   </div>
+
+<!--  <hr>-->
+
+<!--  <div>-->
+<!--    -->
+<!--  </div>-->
 </div>
