@@ -1,16 +1,19 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {IProduct} from "../../../models/product/product";
 import {ApiService} from "../../../services/api.service";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {copyToClipboard, lightenColor} from "../../../helpers/helpers";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-product-view',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgForOf,
+    MatTooltip
   ],
   templateUrl: './product-view.component.html',
   styleUrl: './product-view.component.scss'
@@ -20,10 +23,9 @@ export class ProductViewComponent implements OnInit{
   public currentProduct!:IProduct | undefined;
   public productId!: string;
   public allProductsLoaded: boolean = false;
+  public copied: boolean = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public receivedData: any,
-    private router: Router,
-    private route: ActivatedRoute,
     public apiService: ApiService,
   ) {}
 
@@ -43,20 +45,15 @@ export class ProductViewComponent implements OnInit{
         }
       })
     )
-
-    // this.$subscriptions.add(
-    //   this.route.params.subscribe(params => {
-    //     const id = params['id'];
-    //     this.getProductFromService(id);
-    //   })
-    // )
   }
 
-  getProductFromService(productId: string){
-    // this.currentProduct = this.apiService.allProducts.find((el) => el.id === productId);
-    //
-    // if(!this.currentProduct){
-    //   this.router.navigate(['/product-not-found'])
-    // }
+  copyLink(){
+    copyToClipboard(window.location.href)
+    this.copied = true;
+    setTimeout(() => {
+      this.copied = false;
+    }, 1500)
   }
+
+  protected readonly lightenColor = lightenColor;
 }
