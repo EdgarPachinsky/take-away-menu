@@ -1,7 +1,7 @@
 <div>
   <div class="mt-10 mb-10 ml-10 mr-10">
     <div *ngIf="apiService.loadingProducts" class="loading-hint">
-      Պրոդուկտները բեռնվում են
+      խնդրում եմ սպասել
       <div class="spinner-border spinner-border-sm ml-2" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -33,14 +33,14 @@
                    matTooltip="Կատեգորիա"
                    matTooltipPosition="above"
                    [style.color]="currentProduct?.category?.text_color"
-                   [style.background-color]="lightenColor(currentProduct?.category?.text_color, 65)">
+                   [style.background-color]="lightenColor(currentProduct?.category?.text_color, 85)">
                   <span class="category-container-inner">
                     <span>{{currentProduct?.category?.name}}</span>
                   </span>
               </div>
 
               <div class="category-container mt-2"
-                   matTooltip="{{!copied?'Պատճենել լինկը clipboard-ում':'Պատճենված է'}}"
+                   matTooltip="{{!copied?'Պատճենել հխումը':'Պատճենված է'}}"
                    matTooltipPosition="above"
                    (click)="copyLink()"
               >
@@ -77,7 +77,7 @@
                 <span><i class="fa-solid fa-users"></i></span> <span class="ml-2"> Նախատեսված է</span>
               </div>
               <div class="ml-7 mt-2">
-                <span>{{currentProduct?.portion_for}} հոգու</span>
+                <span>{{currentProduct?.portion_for}} հոգու համար</span>
               </div>
             </div>
 

@@ -9,7 +9,7 @@
           <ng-container *ngIf="apiService.categories.length && !apiService.loadingCategories">
             <div *ngFor="let category of apiService.categories" class="category-container"
                  [style.color]="category.text_color"
-                 [style.background-color]="lightenColor(category.text_color, 65)"
+                 [style.background-color]="lightenColor(category.text_color, 85)"
                  (mouseover)="setBorderColor(category.text_color)"
                  (mouseleave)="removeBorderColor()"
                  (click)="filterProducts(category)"
@@ -42,7 +42,7 @@
 
             <ng-container *ngIf="apiService.products.length && !apiService.loadingProducts">
               <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-12"
-                   *ngFor="let product of apiService.products" (click)="openProductView(product)">
+                   *ngFor="let product of apiService.products | paginate: paginationParams" (click)="openProductView(product)">
                 <div class="product mb-5">
 
                   <div class="product-inner d-flex flex-col">
@@ -68,6 +68,8 @@
                   </div>
                 </div>
               </div>
+
+              <app-pagination [paginationParams]="paginationParams" [itemsLength]="apiService.products.length" (onPageChange)="paginationParams = $event"></app-pagination>
             </ng-container>
 
             <ng-container *ngIf="!apiService.products.length && !apiService.loadingProducts">

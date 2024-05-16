@@ -21,7 +21,7 @@ import {MatTooltip} from "@angular/material/tooltip";
 export class ProductViewComponent implements OnInit{
   public $subscriptions: Subscription = new Subscription();
   public currentProduct!:IProduct | undefined;
-  public productId!: string;
+  public productId!: number;
   public allProductsLoaded: boolean = false;
   public copied: boolean = false;
   constructor(
@@ -39,9 +39,7 @@ export class ProductViewComponent implements OnInit{
         this.allProductsLoaded = res;
 
         if(this.allProductsLoaded){
-          this.currentProduct = this.apiService.getPopupProductById(this.productId);
-          console.log(`this.currentProduct`)
-          console.log(this.currentProduct)
+          this.currentProduct = this.apiService.getPopupProductById(+this.productId);
         }
       })
     )

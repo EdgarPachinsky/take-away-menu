@@ -10,12 +10,15 @@ import {IProduct} from "../../../models/product/product";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductViewComponent} from "../product-view/product-view.component";
 import {lightenColor} from "../../../helpers/helpers";
+import {PaginationComponent} from "../../parts/pagination/pagination.component";
+import {IPagination} from "../../../models/pagination.model";
+import {PaginatePipe} from "../../../pipes/paginate.pipe";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NavbarComponent, CommonModule
+    NavbarComponent, CommonModule, PaginationComponent, PaginatePipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -24,6 +27,11 @@ export class HomeComponent implements OnInit{
 
   public $subscriptions: Subscription = new Subscription();
   public borderColor: string | null = null;
+
+  paginationParams: IPagination = {
+    page: 1,
+    pageSize: 24
+  };
 
   constructor(
     public apiService: ApiService,

@@ -10,21 +10,7 @@ export function lightenColor(hex: string | undefined, percent: number): string {
   const g = parseInt(hex.substring(2, 4), 16);
   const b = parseInt(hex.substring(4, 6), 16);
 
-  // Calculate the percent to lighten each RGB component
-  const lightenAmount = Math.round(255 * (percent / 100));
-
-  // Lighten the color
-  const newR = Math.min(r + lightenAmount, 255);
-  const newG = Math.min(g + lightenAmount, 255);
-  const newB = Math.min(b + lightenAmount, 255);
-
-  // Convert the new RGB values back to hexadecimal
-  const newHex = '#' + [newR, newG, newB].map(component => {
-    const hexValue = component.toString(16);
-    return hexValue.length === 1 ? '0' + hexValue : hexValue;
-  }).join('');
-
-  return newHex;
+  return `rgba(${r}, ${g}, ${b}, ${100 - percent}%)`
 }
 
 export function copyToClipboard(text: string): Promise<void> {
