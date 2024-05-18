@@ -7,7 +7,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
+._content_{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 // GLOBAL FONTS
 @font-face {
   font-family: 'ArmenianYerevanian';
@@ -145,6 +149,7 @@ a{
   text-decoration: none!important;
   color: unset!important;
 }
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

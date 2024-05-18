@@ -1,0 +1,25 @@
+<div  class="d-flex space-between align-center my-4 col-12">
+  <div>
+    <span>Ցույց տալ:</span>
+    <div class="sizes-dropdown mx-2">
+      <button class="dropbtn">{{currentPageSize}}</button>
+      <div class="dropdown-content">
+        <button *ngFor="let size of pageSizes" (click)="pageSizeChange(size)">{{size}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="itemsLength" class="pagination">
+    <button (click)="pageChange(1)">
+      <i class="fa-solid fa-angle-left"></i>
+    </button>
+    <button *ngFor="let page of pages"
+            [class.active]="page === currentPage"
+            (click)="pageChange(page)">
+      {{page}}
+    </button>
+    <button (click)="pageChange(pages.length)">
+      <i class="fa-solid fa-angle-right"></i>
+    </button>
+  </div>
+</div>

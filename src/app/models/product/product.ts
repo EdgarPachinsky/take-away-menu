@@ -1,7 +1,7 @@
 import {IProductCategory} from "./category.model";
 
 export interface IProduct {
-  id: string,
+  id: number,
   category: IProductCategory,
   name: string,
   name_eng?: string,

@@ -1,5 +1,5 @@
 export interface IProductCategory {
-  id: string,
+  id: number,
   name: string,
   name_eng: string,
   text_color?: string,
